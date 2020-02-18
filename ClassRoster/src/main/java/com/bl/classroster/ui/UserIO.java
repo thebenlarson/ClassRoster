@@ -11,6 +11,8 @@ package com.bl.classroster.ui;
  */
 public interface UserIO {
     void print(String msg);
+    
+    void print(int message);
 
     double readDouble(String prompt);
 
@@ -29,4 +31,6 @@ public interface UserIO {
     long readLong(String prompt, long min, long max);
 
     String readString(String prompt);
+    
+    String readStringLong(String prompt);
 }

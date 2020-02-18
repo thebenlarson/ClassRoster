@@ -18,11 +18,31 @@ public class UserIOConsoleImpl implements UserIO{
     public void print(String message){
         System.out.println(message);
     }
-
+    
+    @Override
+    public void print(int message){
+        System.out.println(message);
+    }
+    
     @Override
     public double readDouble(String prompt){
-        print(prompt);
-        return myScanner.nextDouble();
+        boolean error;
+        double output = 0;
+        do {
+            error = false;
+            print(prompt);
+            if (myScanner.hasNextDouble()){
+                output = myScanner.nextDouble();
+            } else {
+                myScanner.nextLine();
+                print("FAILURE: Please enter a double!");
+                error = true;
+            }
+        
+        } while (error);
+        
+        myScanner.nextLine();
+        return output;
     }
 
     @Override
@@ -37,8 +57,23 @@ public class UserIOConsoleImpl implements UserIO{
 
     @Override
     public float readFloat(String prompt){
-        print(prompt);
-        return myScanner.nextFloat();
+        boolean error;
+        float output = 0;
+        do {
+            error = false;
+            print(prompt);
+            if (myScanner.hasNextFloat()){
+                output = myScanner.nextFloat();
+            } else {
+                myScanner.nextLine();
+                print("FAILURE: Please enter a float!");
+                error = true;
+            }
+        
+        } while (error);
+        
+        myScanner.nextLine();
+        return output;
     }
 
     @Override
@@ -53,8 +88,23 @@ public class UserIOConsoleImpl implements UserIO{
 
     @Override
     public int readInt(String prompt){
-        print(prompt);
-        return myScanner.nextInt();
+        boolean error;
+        int output = 0;
+        do {
+            error = false;
+            print(prompt);
+            if (myScanner.hasNextInt()){
+                output = myScanner.nextInt();
+            } else {
+                myScanner.nextLine();
+                print("FAILURE: Please enter an int!");
+                error = true;
+            }
+        
+        } while (error);
+        
+        myScanner.nextLine();
+        return output;
     }
 
     @Override
@@ -69,8 +119,23 @@ public class UserIOConsoleImpl implements UserIO{
 
     @Override
     public long readLong(String prompt){
-        print(prompt);
-        return myScanner.nextLong();
+        boolean error;
+        long output = 0;
+        do {
+            error = false;
+            print(prompt);
+            if (myScanner.hasNextLong()){
+                output = myScanner.nextLong();
+            } else {
+                myScanner.nextLine();
+                print("FAILURE: Please enter an int!");
+                error = true;
+            }
+        
+        } while (error);
+        
+        myScanner.nextLine();
+        return output;
     }
 
     @Override
@@ -86,6 +151,15 @@ public class UserIOConsoleImpl implements UserIO{
     @Override
     public String readString(String prompt){
         print(prompt);
-        return myScanner.next();
+        String output = myScanner.next();
+        myScanner.nextLine();
+        return output;
     }
+    
+    @Override
+    public String readStringLong(String prompt){
+        print(prompt);
+        return myScanner.nextLine();
+    }
+    
 }
