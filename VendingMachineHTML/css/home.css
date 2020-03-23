@@ -1,0 +1,13 @@
+.white-background{
+  background-color:transparent !important;
+  border: 0;
+  font-size: 1em;
+}
+
+.card:hover{
+	transform: scale(1.1);
+}
+
+.item-row{
+	margin-top:10px;
+}
